@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <!-- BootStrap CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+    <!-- -->
+    <!-- External stylesheet -->
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- -->
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  -->
+    <title>ChitFund</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">ChitFund</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house" style="margin-right: 5px;"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html"><i class="fa-solid fa-user-plus" style="margin-right: 3px;"></i>Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="join.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 3px;"></i>Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <!-- -->
+    <!-- SlideShow -->
+    <div class="slideshow-container">
+        <div class="slideshow-slide">
+            <img src="assets/img1.png" alt="Slide 1">
+        </div>
+        <div class="slideshow-slide">
+            <img src="assets/img2.png" alt="Slide 2">
+        </div>
+        <div class="slideshow-slide">
+            <img src="assets/img3.png" alt="Slide 3">
+        </div>
+        <a class="slideshow-prev">&#10094;</a>
+        <a class="slideshow-next">&#10095;</a>
+    </div>
+    
+    <script>
+        const slides = document.querySelectorAll('.slideshow-slide');
+        let currentSlide = 0;
+
+        // Show the first slide
+        slides[currentSlide].classList.add('active');
+
+        // Function to move to the next slide
+        function nextSlide() {
+        // Hide the current slide
+        slides[currentSlide].classList.remove('active');
+        // Move to the next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        // Show the next slide
+        slides[currentSlide].classList.add('active');
+        }
+
+        // Function to move to the previous slide
+        function prevSlide() {
+        // Hide the current slide
+        slides[currentSlide].classList.remove('active');
+        // Move to the previous slide
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        // Show the previous slide
+        slides[currentSlide].classList.add('active');
+        }
+
+        // Attach event listeners to the prev and next buttons
+        document.querySelector('.slideshow-prev').addEventListener('click', prevSlide);
+        document.querySelector('.slideshow-next').addEventListener('click', nextSlide);
+
+        setInterval(nextSlide, 10000);
+
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+    </script>
+    <!-- -->
+
+    <!-- Buttons -->
+    <div class="btn">
+        <a class="dropbtn" href="register.html">Register</a>
+        <div>
+        <button onclick="myFunction()" class="dropbtn">Other Activities</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="bid.html">Bid</a>
+            <a href="installment.html">Installment Payment</a>
+            <a href="release.html">Distribute Fund</a>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
