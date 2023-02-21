@@ -1,6 +1,8 @@
 body{
         background: linear-gradient(-45deg,rgb(33, 37, 41) 50%,#fe9859 50%);
 }
+
+
 .nav-link:hover{
         /* font-size: 1.25em;*/
         transition: 0.4s ease-in-out;
@@ -63,7 +65,7 @@ nav{
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-img{
+.image{
         margin: auto;
         width:100%;
         height:100%;
@@ -76,9 +78,9 @@ img{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2em;
+  font-size: 1.2em;
   font-weight: bold;
-  color: white;
+  color: rgb(230, 205, 184);
   text-decoration: none;
   cursor: pointer;
 }
@@ -90,11 +92,40 @@ img{
 }
 
 /* Drop Down */
-.btn{
+ .btn{
 display: flex;
 flex-direction: column;
 align-items: center;
 row-gap: 10px;
+}
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  margin: auto;
+  font-size: 20px;
+  color: #030202;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown-container {
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .dropbtn {
@@ -104,24 +135,25 @@ row-gap: 10px;
   font-size: 1.1rem;
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 .dropbtn:hover, .dropbtn:focus {
   background-color: #ff9756;
 }
 
-/* .dropdown {
+ .dropdown {
   position: absolute;
   bottom:0px;
   left:10px;
-} */
+} 
 
 .dropdown-content {
   display: none;
   position: relative;
   left: 2px;
   top: 0px;
-  background-color: #f1f1f1;
+  background-color: #ff9578;
   min-width: 150px;
   overflow: auto;
   z-index: 1;
@@ -136,3 +168,44 @@ row-gap: 10px;
 .dropdown a:hover {background-color: #615353;}
 
 .show {display: inline-block;} 
+
+/* Card-Styles */
+.container {
+        margin-top: 8rem;
+        margin-bottom: 10px;
+}
+
+.card {
+        border: 0.125rem solid black;
+        --bs-card-border-width: none;
+}
+
+.card a {
+        font-size: 1.2rem;
+}
+
+.card-header {
+        color: white;
+        padding: 15px 10px;
+}
+
+.card-body {
+        font-size: large;
+}
+
+.card-footer {
+        display: flex;
+        flex-wrap: wrap;
+}
+
+/* Form  */
+
+form {
+        margin-bottom: 0;
+}
+
+p {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-left: 20px
+}
