@@ -49,13 +49,13 @@
     <!-- SlideShow -->
     <div class="slideshow-container">
         <div class="slideshow-slide">
-            <img src="assets/img1.png" alt="Slide 1">
+            <img class="image" src="assets/img1.png" alt="Slide 1">
         </div>
         <div class="slideshow-slide">
-            <img src="assets/img2.png" alt="Slide 2">
+            <img class="image" src="assets/img2.png" alt="Slide 2">
         </div>
         <div class="slideshow-slide">
-            <img src="assets/img3.png" alt="Slide 3">
+            <img class="image" src="assets/img3.png" alt="Slide 3">
         </div>
         <a class="slideshow-prev">&#10094;</a>
         <a class="slideshow-next">&#10095;</a>
@@ -111,6 +111,21 @@
             }
         }
         }
+
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+            } else {
+            dropdownContent.style.display = "block";
+            }
+        });
+        }
     </script>
     <!-- -->
 
@@ -124,6 +139,14 @@
             <a href="installment.html">Installment Payment</a>
             <a href="release.html">Distribute Fund</a>
         </div>
+        <!-- <button class="dropdown-btn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div> -->
         </div>
     </div>
 </body>
