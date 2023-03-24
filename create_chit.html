@@ -70,9 +70,11 @@
                         <label>AMOUNT</label>
                         <input type="number" id="AMOUNT" placeholder="Amount ( Wei )" class="form-control" required><br>
                         <label>INSTALLMENTS</label>
-                        <input type="number" id="INSTALLMENTS" placeholder="Installments" class="form-control" required><br>
+                        <input type="number" id="INSTALLMENTS" placeholder="Installments" class="form-control"
+                            required><br>
                         <label>PARTICIPANTS COUNT</label>
-                        <input type="number" id="PARTICIPANTSCOUNT" placeholder="Participants Count" class="form-control" required><br>
+                        <input type="number" id="PARTICIPANTSCOUNT" placeholder="Participants Count"
+                            class="form-control" required><br>
                     </div>
                     <div class="card-footer text-muted">
                         <input type="submit" value="Create" onclick="createChit();" class="btn btn-dark">
@@ -104,7 +106,7 @@
             await loadWeb3();
         }
         load();
-        async function loadContract(){
+        async function loadContract() {
             const chitFundCompanyABI = [
                 {
                     "inputs": [
@@ -267,11 +269,11 @@
                 }
             ];
             const chitFundCompanyAddress = "0xFE5F655b7a86191264dC2FDc425D6dB07eF6d4FF";
-            return await new window.web3.eth.Contract(chitFundCompanyABI,chitFundCompanyAddress);
+            return await new window.web3.eth.Contract(chitFundCompanyABI, chitFundCompanyAddress);
         }
-        async function createChit(){
+        async function createChit() {
             updateStatus("Processing ...");
-            const contract=await loadContract();
+            const contract = await loadContract();
             const chitFundName = document.getElementById("CHITNAME").value;
             const account_id = document.getElementById("FOREMAN ID").value;
             const password = document.getElementById("Password").value;
@@ -280,8 +282,7 @@
             const participants_count = document.getElementById("PARTICIPANTSCOUNT").value;
             const Subscriber = await contract.methods.subscribers(account_id).call();
             const hash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-            if(hash != Subscriber.password) 
-            {
+            if (hash != Subscriber.password) {
                 updateStatus("Invalid Address or Password");
                 return 0;
             }
