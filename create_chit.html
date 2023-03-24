@@ -20,7 +20,7 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--  -->
-    <title>Register</title>
+    <title>Create ChitFund</title>
 </head>
 
 <body>
@@ -57,33 +57,29 @@
         <div class="row justify-content-center">
             <div class="card" style="padding: 0; width: 60%;">
                 <h2 class="card-header bg-dark">
-                    Sign Up
+                    CREATE CHIT
                 </h2>
                 <form>
                     <div class="card-body">
-                        <label>NAME</label>
-                        <input type="text" id="Name" placeholder="Name" class="form-control" required><br>
-                        <label>EMAIL</label>
-                        <input type="email" id="Email" placeholder="Email" class="form-control" required><br>
-                        <label>ACCCOUNT ID</label>
-                        <input type="text" id="Account ID" placeholder="Account ID" class="form-control" required><br>
-                        <label>PASSWORD</label>
+                        <label>CHIT NAME</label>
+                        <input type="text" id="CHITNAME" placeholder="Chit Name" class="form-control" required><br>
+                        <label>FOREMAN ID</label>
+                        <input type="text" id="FOREMAN ID" placeholder="Foreman ID" class="form-control" required><br>
+                        <label>Password</label>
                         <input type="password" id="Password" placeholder="Password" class="form-control" required><br>
-                        <label>MOBILE NUMBER</label>
-                        <input type="tel" id="Mobile Number" placeholder="Mobile Number" size="10" class="form-control" required><br>
-                        <label>DATE OF BIRTH</label>
-                        <input type="date" id="DOB" placeholder="DOB" class="form-control" required><br>
-                        <label>ADDRESS</label>
-                        <input type="text" id="Address" placeholder="Address" class="form-control" required><br>
-                        <label>AADHAR ID</label>
-                        <input type="text" id="aadhar" placeholder="Aadhar Number" class="form-control" required><br>
+                        <label>AMOUNT</label>
+                        <input type="number" id="AMOUNT" placeholder="Amount ( Wei )" class="form-control" required><br>
+                        <label>INSTALLMENTS</label>
+                        <input type="number" id="INSTALLMENTS" placeholder="Installments" class="form-control" required><br>
+                        <label>PARTICIPANTS COUNT</label>
+                        <input type="number" id="PARTICIPANTSCOUNT" placeholder="Participants Count" class="form-control" required><br>
                     </div>
                     <div class="card-footer text-muted">
-                        <input type="submit" value="Register" onclick="Register();" class="btn btn-dark">
+                        <input type="submit" value="Create" onclick="createChit();" class="btn btn-dark">
                         <input type="reset" value="Clear" class="btn btn-dark" style="margin-left: 20px">
                         <p>Status: <span id="status">Ready !</span></p>
                     </div>
-                    <p>Already Registered? <a href="create_chit.html">Create</a> / <a href="join_chit.html">Join</a> Fund.</p>
+                    <p>Not Registered? <a href="register.html">Sign Up</a>.</p>
                 </form>
             </div>
         </div>
@@ -108,27 +104,8 @@
             await loadWeb3();
         }
         load();
-        async function loadContract() {
+        async function loadContract(){
             const chitFundCompanyABI = [
-                {
-                    "inputs": [
-                        {
-                            "internalType": "string",
-                            "name": "",
-                            "type": "string"
-                        }
-                    ],
-                    "name": "chitfunds",
-                    "outputs": [
-                        {
-                            "internalType": "address",
-                            "name": "",
-                            "type": "address"
-                        }
-                    ],
-                    "stateMutability": "view",
-                    "type": "function"
-                },
                 {
                     "inputs": [
                         {
@@ -218,6 +195,25 @@
                 {
                     "inputs": [
                         {
+                            "internalType": "string",
+                            "name": "",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "chitfunds",
+                    "outputs": [
+                        {
+                            "internalType": "address",
+                            "name": "",
+                            "type": "address"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [
+                        {
                             "internalType": "address",
                             "name": "",
                             "type": "address"
@@ -271,22 +267,26 @@
                 }
             ];
             const chitFundCompanyAddress = "0xFE5F655b7a86191264dC2FDc425D6dB07eF6d4FF";
-            return await new window.web3.eth.Contract(chitFundCompanyABI, chitFundCompanyAddress);
+            return await new window.web3.eth.Contract(chitFundCompanyABI,chitFundCompanyAddress);
         }
-        async function Register(){
-            updateStatus("Processing...");
-            const contract = await loadContract();
-            const name = document.getElementById("Name").value;
-            const email = document.getElementById("Email").value;
-            const account_id = document.getElementById("Account ID").value;
+        async function createChit(){
+            updateStatus("Processing ...");
+            const contract=await loadContract();
+            const chitFundName = document.getElementById("CHITNAME").value;
+            const account_id = document.getElementById("FOREMAN ID").value;
             const password = document.getElementById("Password").value;
-            const mobile_number = document.getElementById("Mobile Number").value;
-            const dob = document.getElementById("DOB").value;
-            const address = document.getElementById("Address").value;
-            const aadhar = document.getElementById("aadhar").value;
+            const amount = document.getElementById("AMOUNT").value;
+            const installments = document.getElementById("INSTALLMENTS").value;
+            const participants_count = document.getElementById("PARTICIPANTSCOUNT").value;
+            const Subscriber = await contract.methods.subscribers(account_id).call();
             const hash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-            await contract.methods.register(name, email, account_id, hash, mobile_number, dob, address, aadhar).send({ from: account_id });
-            updateStatus("Registered Successfully");
+            if(hash != Subscriber.password) 
+            {
+                updateStatus("Invalid Address or Password");
+                return 0;
+            }
+            await contract.methods.createChitFund(chitFundName, account_id, hash, amount, installments, participants_count).send({ from: account_id });
+            updateStatus(`Chit Fund named ${chitFundName} Created Successfully!`);
         }
     </script>
 </body>
