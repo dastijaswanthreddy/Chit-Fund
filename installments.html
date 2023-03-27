@@ -262,7 +262,7 @@
                     "type": "function"
                 }
             ];
-            const chitFundCompanyAddress = "0xFE5F655b7a86191264dC2FDc425D6dB07eF6d4FF";
+            const chitFundCompanyAddress = "0xb86516009c47eb4d4c86a92157734bccb0df79f7";
             return await new window.web3.eth.Contract(chitFundCompanyABI,chitFundCompanyAddress);
         }
         async function Contribute() {
@@ -607,6 +607,11 @@
             const pay = await chitFundContract.methods.installmentAmount().call();
             document.getElementById('Amount').value = pay;
             const Subscriber = await contract.methods.subscribers(account_id).call();
+            if (Subscriber.password == "") 
+            {
+                updateStatus("Please do register inorder to pay installments");
+                return 0;
+            }
             if (hash != Subscriber.password) 
             {
                 updateStatus("Invalid Username or Password");

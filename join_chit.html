@@ -69,7 +69,7 @@
                         <input type="password" id="Password" placeholder="Password" class="form-control" required><br>
                     </div>
                     <div class="card-footer text-muted">
-                        <input type="submit" onclick="joinChit();" value="Join" class="btn btn-dark">
+                        <input type="button" onclick="joinChit()" value="Join" class="btn btn-dark">
                         <input type="reset" value="Clear" class="btn btn-dark" style="margin-left: 20px">
                         <p>Status: <span id="status">Ready !</span></p>
                     </div>
@@ -260,13 +260,13 @@
                     "type": "function"
                 }
             ];
-            const chitFundCompanyAddress = "0xFE5F655b7a86191264dC2FDc425D6dB07eF6d4FF";
+            const chitFundCompanyAddress = "0xb86516009c47eb4d4c86a92157734bccb0df79f7";
             return await new window.web3.eth.Contract(chitFundCompanyABI,chitFundCompanyAddress);
         }
         async function joinChit(){
             updateStatus("Processing...");
             const contract = await loadContract();
-            const chitFundName = document.getElementById("chitFund ID").value;
+            const chitFundName = document.getElementById("ChitFund ID").value;
             const account_id = document.getElementById("Account ID").value;
             const password = document.getElementById("Password").value;
             const chitFundABI = [
@@ -602,8 +602,12 @@
             const chitFundAddress = await contract.methods.chitfunds(chitFundName).call();
             const chitFundContract = await new window.web3.eth.Contract(chitFundABI,chitFundAddress);
             const hash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-            //try with calling directly the map without the extra function
             const Subscriber = await contract.methods.subscribers(account_id).call();
+            if(Subscriber.password=="")
+            {
+                updateStatus("Please do register inorder to join the chit");
+                return 0;
+            }
             if(hash != Subscriber.password)
             {
                 updateStatus("Invalid Address or Password");

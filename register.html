@@ -79,7 +79,7 @@
                         <input type="text" id="aadhar" placeholder="Aadhar Number" class="form-control" required><br>
                     </div>
                     <div class="card-footer text-muted">
-                        <input type="submit" value="Register" onclick="Register();" class="btn btn-dark">
+                        <input type="button" value="Register" onclick="Register()" class="btn btn-dark">
                         <input type="reset" value="Clear" class="btn btn-dark" style="margin-left: 20px">
                         <p>Status: <span id="status">Ready !</span></p>
                     </div>
@@ -270,7 +270,7 @@
                     "type": "function"
                 }
             ];
-            const chitFundCompanyAddress = "0xFE5F655b7a86191264dC2FDc425D6dB07eF6d4FF";
+            const chitFundCompanyAddress = "0xb86516009c47eb4d4c86a92157734bccb0df79f7";
             return await new window.web3.eth.Contract(chitFundCompanyABI, chitFundCompanyAddress);
         }
         async function Register(){
