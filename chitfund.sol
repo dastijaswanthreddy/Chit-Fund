@@ -68,22 +68,22 @@ contract chitFund
         minBidAmount = _amount * _installments;
     }
     
-    modifier isForeman {
+    modifier isForeman() {
         require(msg.sender == foremanId, "Access Denied");
         _;
     }
 
-    modifier isParticipant {
+    modifier isParticipant() {
         require(participants[msg.sender] == true, "Access Denied");
         _;
     }
 
-    modifier isEnoughParticipants {
-        require(participantsArray.length == noOfParticipants, "Waiting for Participants to join the Chit :(");
+    modifier isEnoughParticipants() {
+        require(participantsArray.length == noOfParticipants, "");
         _;
     }
 
-    modifier chitFundStatus {
+    modifier chitFundStatus() {
         require(status == true, "This ChitFund has been completed");
         _;
     }
@@ -96,7 +96,8 @@ contract chitFund
         participantsArray.push(msg.sender);
     }
 
-    function contribute() public isParticipant isEnoughParticipants chitFundStatus payable {
+    function contribute() public isParticipant chitFundStatus payable {
+        require(participantsArray.length == noOfParticipants, "Waiting for Participants to join the Chit :(");
         require(msg.value == installmentAmount, "Invalid Amount");
         require(contributedParticipants[msg.sender] != currentInstallment, "Already Paid");
         require(status, "This ChitFund has been completed");
@@ -105,7 +106,8 @@ contract chitFund
         currentNumberOfContributors++;
     }
 
-    function bid(uint256 amt) public isParticipant isEnoughParticipants chitFundStatus {
+    function bid(uint256 amt) public isParticipant chitFundStatus {
+        require(participantsArray.length == noOfParticipants, "Waiting for Participants to join the Chit :(");
         require(currentNumberOfContributors == noOfParticipants, "Waiting for all participants contribution");
         require(amt>0, "Invalid Amount");
         require(amt<minBidAmount, "Amount is greater than current Bid");
@@ -115,7 +117,7 @@ contract chitFund
         winner = msg.sender;
     }
 
-    function releaseFund() public isForeman isEnoughParticipants chitFundStatus payable {
+    function releaseFund() public isForeman chitFundStatus payable {
         require(currentNumberOfContributors == noOfParticipants, "Waiting for all participants contribution");
         payable(winner).transfer(minBidAmount);
         winnersList[winner] = true;
