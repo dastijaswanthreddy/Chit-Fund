@@ -44,13 +44,13 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house" style="margin-right: 5px;"></i>Home</a>
+                        <a class="nav-link button-33" href="index.html"><i class="fa-solid fa-house" style="margin-right: 5px;"></i>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.html"><i class="fa-solid fa-user-plus" style="margin-right: 3px;"></i>Register</a>
+                        <a class="nav-link button-33" href="register.html"><i class="fa-solid fa-user-plus" style="margin-right: 3px;"></i>Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="join_chit.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 3px;"></i>Join</a>
+                        <a class="nav-link button-33" href="join_chit.html"><i class="fa-solid fa-right-to-bracket" style="margin-right: 3px;"></i>Join</a>
                     </li>
                 </ul>
             </div>
@@ -68,8 +68,6 @@
             <img src="assets/img3.png" alt="Image 3">
         </div>
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
         <div class="dots-container">
             <span class="dot" onclick="currentSlide(1)"></span>
@@ -79,10 +77,23 @@
     </section>
     
      <!-- Buttons -->
+     
+
+
     <div class="container1">
-        <a class="reg_btn" href="register.html">Register</a>
-        <div class="dropdown">
-          <button class="dropbtn">Other activities</button>
+        <a class="button-57 " href="register.html"><span class="text-57">Register</span><span>Register</span></a>
+        <!-- <div class="circle-container">
+            <button id="center-btn"  class="btn">Other activities</button>
+            <button id="btn1" class="btn hide">1</button>
+            <button id="btn2" class="btn hide">2</button>
+            <button id="btn3" class="btn hide">3</button>
+            <button id="btn4" class="btn hide">4</button>
+            <button id="btn5" class="btn hide">5</button>
+            <button id="btn6" class="btn hide">6</button>
+          </div> -->
+
+        <!-- <div class="dropdown">
+          <button class="dropbtn button-57"><span class="text-57">Other activities</span><span>Other activities</span></button>
           <div id="myDropdown" class="dropdown-content">
             <a class="link" href="bid.html">Bid</a><br/>
             <a class="link" href="create_chit.html">Create Chit</a><br/>
@@ -90,76 +101,134 @@
             <a class="link" href="installments.html">Installment Payment</a><br/>
             <a class="link" href="release.html">Distribute Fund</a>
           </div>
-        </div>
+        </div> -->
+        <div class="circle-container">
+              <button id="center-btns" class="btns button-1">Other activities</button>
+              <a id="btns1"class="link btns hide" href="bid.html">Bid</a><br/>
+              <a id="btns2"class="link btns hide" href="create_chit.html">Create Chit</a><br/>
+              <a id="btns3"class="link btns hide" href="join_chit.html">Join ChitFund group</a><br/>
+              <a id="btns4"class="link btns hide" href="installments.html">Installment Payment</a><br/>
+              <a id="btns5"class="link btns hide" href="release.html">Distribute Fund</a>
+           
+          </div>
       </div> 
        
       <!-- Footer starts -->
       <div class="footer">
-        <div class="row">
-          <div class="col-md-4">
-               <img src="assets/" alt="">
-               <h6 >Chifund Company</h6>
-               <p>Chifund Company</p>
-               
-          </div>
-          <div class="col-md-4">
-              <h6>About us </h6>
-          </div>
-          <div class="col-md-4">
-              <h6>Contact information</h6>
-          </div>
+        <button class="button-33" style="visibility: hidden;">About us</button>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md-4">
+                     <img src="assets/" alt="">
+                     <h6 class="text-footer">Chifund Company</h6>
+                     <p>Chifund Company</p>
+                     
+                </div>
+                <div class="col-md-4">
+                    <h6>About us </h6>
+                </div>
+                <div class="col-md-4">
+                    <h6>Contact information</h6>
+                </div>
+              </div>
+          
         </div>
-
       </div>
+
+
       <!-- Footer ends -->
-    
-  <script>
+      
 
-    async function loadWeb3() {
-        //loading our network and gives us access to it 
-        if (window.ethereum) {
-            window.web3 = new Web3(window.ethereum);
-            window.ethereum.request({ method: 'eth_requestAccounts' });
+
+
+<!-- circle buttons js starts-->
+    <script>
+        let isSpread = false;
+        document.querySelector('#center-btns').addEventListener('click', () => {
+        const container = document.querySelector('.circle-container');
+        const btns = document.querySelectorAll('.btns');
+        const centerBtn = document.querySelector('#center-btns');
+   
+        if (isSpread) {
+          btns.forEach((btn, index) => {
+             if (index > 0) {
+                btn.style.top = '50%';
+                btn.style.left = '50%';
+                btn.classList.add('hide');
+             }
+          });
+          centerBtn.innerText = 'Other Activities';
+          isSpread = false;
+        } 
+        else {
+            const radius = 120;
+            const slice = 2 * Math.PI / (btns.length - 1);
+        
+            btns.forEach((btn, index) => {
+              if (index > 0) {
+                const angle = slice * (index - 1);
+                const x = Math.round(150 + radius * Math.cos(angle));
+                const y = Math.round(150 + radius * Math.sin(angle));
+                btn.style.top = `${y}px`;
+                btn.style.left = `${x}px`;
+                btn.classList.remove('hide');
+              }
+            });
+            centerBtn.innerText = 'Close';
+            isSpread = true;
+          }
+        });
+ 
+     </script>
+<!-- circlebuttons js ends  -->
+  
+
+
+    <script>
+        async function loadWeb3() {
+            //loading our network and gives us access to it 
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.request({ method: 'eth_requestAccounts' });
+            }
         }
-    }
-    async function load() {
-        await loadWeb3();
-    }
-    load(); 
-
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-    showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-    showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("image");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = slides.length
-    }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    }
-
+        async function load() {
+            await loadWeb3();
+        }
+        load(); 
+    
+        var slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("image");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        }
+    
     </script>
-
 
 
 
