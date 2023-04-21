@@ -1,0 +1,220 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+    <!-- BootStrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- -->
+    <!-- External stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- -->
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  -->
+    <title>ChitFund</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <video id="background-video" autoplay loop muted poster="assets/bg1.mp4">
+        <source src="assets/bg1.mp4" type="video/mp4">
+    </video>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://192.168.56.1:8080/index.html"><img class="logo" src="assets/logo2.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://192.168.56.1:8080/index.html"><i class="fa-solid fa-house"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:5200/"><i class="fa-solid fa-right-to-bracket"></i>Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://192.168.56.1:8080/join_chit.html"><i class="fa-solid fa-user-plus"></i>Join</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <!-- Slideshow -->
+    <section class="slideshow-container">
+        <div class="image">
+            <img src="assets/img1.png" alt="Image 1">
+        </div>
+        <div class="image">
+            <img src="assets/img2.png" alt="Image 2">
+        </div>
+        <div class="image">
+            <img src="assets/img3.png" alt="Image 3">
+        </div>
+    
+    
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+    <!-- Slideshow Ends -->
+
+    <!-- Actions -->
+    <div class="container1">
+        <a class="button-57 " href="http://127.0.0.1:5200/"><span class="text-57">Register</span><span>Register</span></a>
+        <div class="circle-container">
+            <button id="center-btns" class="btns button-1">Other activities</button>
+            <a id="btns1" class="link btns hide" href="bid.html">Bid</a><br />
+            <a id="btns2" class="link btns hide" href="create_chit.html">Create Chit</a><br />
+            <a id="btns3" class="link btns hide" href="join_chit.html">Join ChitFund group</a><br />
+            <a id="btns4" class="link btns hide" href="installments.html">Installment Payment</a><br />
+            <a id="btns5" class="link btns hide" href="release_fund.html">Distribute Fund</a>
+    
+        </div>
+    </div>
+    <!-- Actions Ends -->
+
+    <!-- Card  -->
+    <!-- <div class="container">
+        <div class="row justify-content-center">
+            <div class="card text-center" style="padding: 0; width: 70%;">
+                <h2 class="card-header" style="color: black;">
+                    ChitFund Panel
+                </h2>
+                <div class="card-body">
+                    <a href="create_chit.html" class="btn btn-dark">Create ChitFund</a><br /><br />
+                    <a href="join_chit.html" class="btn btn-dark">Join ChitFund</a><br /><br />
+                    <a href="bid.html" class="btn btn-dark">Click to Participate in Bid</a><br /><br />
+                    <a href="release_fund.html" class="btn btn-dark">Click to Distribute Fund</a><br />
+                </div>
+                <div class="card-footer justify-content-center">
+                    <a href="installments.html" class="btn btn-dark">Click here to Pay Installments</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--  -->
+
+    <!-- Footer starts -->
+    <!-- <div class="footer">
+        <button class="button-33">About us</button>
+        <div class="overlay">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="assets/" alt="">
+                    <h6 class="text-footer">Chifund Company</h6>
+                    <p>This is protype of chitfund website.It's speciality is that it b</p>
+    
+                </div>
+                <div class="col-md-4">
+                    <h6>About us </h6>
+                </div>
+                <div class="col-md-4">
+                    <h6>Contact information</h6>
+                </div>
+            </div>
+    
+        </div>
+    </div> -->
+    <!-- Footer Ends -->
+
+    <!-- circle buttons js starts-->
+    <script>
+        let isSpread = false;
+        document.querySelector('#center-btns').addEventListener('click', () => {
+            const container = document.querySelector('.circle-container');
+            const btns = document.querySelectorAll('.btns');
+            const centerBtn = document.querySelector('#center-btns');
+
+            if (isSpread) {
+                btns.forEach((btn, index) => {
+                    if (index > 0) {
+                        btn.style.top = '50%';
+                        btn.style.left = '50%';
+                        btn.classList.add('hide');
+                    }
+                });
+                centerBtn.innerText = 'Other Activities';
+                isSpread = false;
+            }
+            else {
+                const radius = 120;
+                const slice = 2 * Math.PI / (btns.length - 1);
+
+                btns.forEach((btn, index) => {
+                    if (index > 0) {
+                        const angle = slice * (index - 1);
+                        const x = Math.round(150 + radius * Math.cos(angle));
+                        const y = Math.round(150 + radius * Math.sin(angle));
+                        btn.style.top = `${y}px`;
+                        btn.style.left = `${x}px`;
+                        btn.classList.remove('hide');
+                    }
+                });
+                centerBtn.innerText = 'Close';
+                isSpread = true;
+            }
+        });
+
+    </script>
+    <!-- circlebuttons js ends  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+    <script type="text/javascript">
+        async function loadWeb3() {
+            //loading our network and gives us access to it
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.request({ method: 'eth_requestAccounts' });
+            }
+        }
+        async function load() {
+            await loadWeb3();
+        }
+        load();
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("image");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
+</html>
