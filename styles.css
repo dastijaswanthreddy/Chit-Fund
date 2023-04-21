@@ -1,211 +1,100 @@
-body{
-        background: linear-gradient(-45deg,rgb(33, 37, 41) 50%,#fe9859 50%);
+.box
+{
+position: relative;
+;
 }
-
-
-.nav-link:hover{
-        /* font-size: 1.25em;*/
-        transition: 0.4s ease-in-out;
-        color: black;
-        background-color: #fe9859;
-        border-radius: 1.1rem;
-}
-
-
-/* Navbar */
-nav{
-        width: 100%;
-        height: 10%;
-}
-
-/* to keep navbar fixed at the top, use the navbar class below and change the margin of the row div according to the page  */
-.navbar{
-        position: fixed;
-        top: 0;
-        z-index: 1;
-        border-bottom: 3px solid #FFA46C;
-}
-
-.navbar-brand{
-        margin-left: 2%;
-        font-size: 1.875rem;
-        color: white;
-}
-.navbar-nav{
-        background-color: rgb(33, 37, 41);
+.box .square{
         position: absolute;
-        right: 0.005rem;
-        padding-right: 2em;
-        z-index: 100;
-}
-.nav-link {
-        margin-left: 1.875rem;
-        font-size: 1.15rem;
-        color: white;
-}
-.navbar-toggler {
-        background-color: white;
+        
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid Orgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        border-radius: 10px;
 }
 
-/* Slide-show*/
-.slideshow-container {
-  position: relative;
-  top:10%;
-  margin: auto;
-  width: 40%;
-  height: 400px;
-  overflow: hidden;
-}
-.slideshow-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-.image{
-        margin: auto;
-        width:100%;
-        height:100%;
-}
-.slideshow-slide.active {
-  opacity: 1;
-}
-.slideshow-prev,
-.slideshow-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-  font-weight: bold;
-  color: rgb(230, 205, 184);
-  text-decoration: none;
-  cursor: pointer;
-}
-.slideshow-prev {
-  left: 20px;
-}
-.slideshow-next {
-  right: 20px;
-}
 
-/* Drop Down */
- .btn{
-display: flex;
-flex-direction: column;
-align-items: center;
-row-gap: 10px;
-}
-.dropdown-btn {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  margin: auto;
-  font-size: 20px;
-  color: #030202;
-  display: block;
-  border: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-.dropdown-container {
-    padding-left: 8px;
-}
-
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
-
-/* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-.dropbtn {
-  background-color: #fe9859;
-  color: rgb(14, 13, 13);
-  padding:5px 10px ;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #ff9756;
-}
-
- .dropdown {
-  position: absolute;
-  bottom:0px;
-  left:10px;
-} 
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  left: 2px;
-  top: 0px;
-  background-color: #ff9578;
-  min-width: 150px;
-  overflow: auto;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  padding: 12px 10px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #615353;}
-
-.show {display: inline-block;} 
-
-/* Card-Styles */
-.container {
-        margin-top: 8rem;
-        margin-bottom: 10px;
-}
-
-.card {
-        border: 0.125rem solid black;
-        --bs-card-border-width: none;
-}
-
-.card a {
-        font-size: 1.2rem;
-}
-
-.card-header {
-        color: white;
-        padding: 15px 10px;
-}
-
-.card-body {
-        font-size: large;
-}
-
-.card-footer {
+.container{
+        position: relative;
+        width: 45%;
+        min-height: 400px;
+        background:rgba(255, 255, 255, 0.233);
+        border-radius: 10px;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid Orgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.form{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+}
+.form h2{
+        position: relative;
+        color:white;
+        font-size:24px;
+        font-weight: 600;
+        Letter-spacing: 1px;
+        margin-bottom: 40px;
+}
+.form h2::before{
+        content: '';
+        top: 35px;
+        position: absolute;
+        Left: 0;
+        bottom: 10px;
+        width: 80px;
+        height: 4px;
+        background: white;
+}
+.form .inputBox{
+        width: 100%;
+        margin-top: 20px;
+}
+.form .inputBox1{
+    width: 20%;
+    margin-top: 20px;
 }
 
-/* Form  */
-
-form {
-        margin-bottom: 0;
+.form .inputBox input,.form .inputBox1 input{
+        width: 100%;
+        background:rgba(255,255,255,0.2);
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 35px;
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid Orgba(255,255,255,0.2);
+        border-bottom: 1px solid Orgba(255,255,255,0.2);
+        font-size: 16px;
+        Letter-spacing: 1px;
+        color:white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-
-p {
-        font-size: 20px;
-        margin-top: 10px;
-        margin-left: 20px
+.form .inputBox input::placeholder, .form .inputBox1 input::placeholder{
+        color:white;
+}
+.form .inputBox1 input[type="button"], .form .inputBox1 input[type="reset"]{
+        background: black;
+        color: white;
+        max-width: 100px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+}
+.form p{
+    color: white;
+}
+.form p span{
+    color: yellow;
+}
+.form p a{
+    color: rgb(200, 255, 0);
 }
