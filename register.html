@@ -14,6 +14,8 @@
     <!-- -->
     <!-- External stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
     <!-- -->
     <!-- Font Awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -57,41 +59,52 @@
     <!--  -->
 
     <!-- Card  -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card" style="padding: 0; width: 60%;">
-                <h2 class="card-header bg-dark">
-                    Sign Up
-                </h2>
-                <form>
-                    <div class="card-body">
-                        <label>NAME</label>
-                        <input type="text" id="Name" placeholder="Name" class="form-control" required><br>
-                        <label>EMAIL</label>
-                        <input type="email" id="Email" placeholder="Email" class="form-control" required><br>
-                        <label>ACCCOUNT ID</label>
-                        <input type="text" id="Account ID" placeholder="Account ID" class="form-control" required><br>
-                        <label>PASSWORD</label>
-                        <input type="password" id="Password" placeholder="Password" class="form-control" required><br>
-                        <label>MOBILE NUMBER</label>
-                        <input type="tel" id="Mobile Number" placeholder="Mobile Number" size="10" class="form-control" required><br>
-                        <label>DATE OF BIRTH</label>
-                        <input type="date" id="DOB" placeholder="DOB" class="form-control" required><br>
-                        <label>ADDRESS</label>
-                        <input type="text" id="Address" placeholder="Address" class="form-control" required><br>
-                        <label>AADHAR ID</label>
-                        <input type="text" id="aadhar" placeholder="Aadhar Number" class="form-control" required><br>
-                    </div>
-                    <div class="card-footer text-muted">
-                        <input type="button" value="Register" onclick="Register()" class="btn btn-dark">
-                        <input type="reset" value="Clear" class="btn btn-dark" style="margin-left: 20px">
-                        <p>Status: <span id="status">Ready !</span></p>
-                    </div>
-                    <p>Already Registered? <a href="create_chit.html">Create</a> / <a href="join_chit.html">Join</a> Fund.</p>
-                </form>
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                        <h2>Sign Up</h2>
+                        <form>
+                            <div class="inputBox">
+                                <input type="text" id="Name" placeholder="Name" required>
+                            </div>
+                            <div class="inputbox">
+                                <input type="email" id="Email" placeholder="Email"  required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" id="Account ID" placeholder="Account ID" required> 
+                            </div>
+                            <div class="inputBox">
+                                <input type="password" id="Password" placeholder="Password" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="tel" id="Mobile Number" placeholder="Mobile Number" size="10"  required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="date" id="DOB" placeholder="DOB" required>
+                            </div>
+                            <div class="inputBox">
+                               <input type="text" id="Address" placeholder="Address" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" id="aadhar" placeholder="Aadhar Number"  required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 inputBox1">
+                                    <input type="button" value="Register" onclick="Register()" style="display: inline;" class="btn btn-dark">
+                                </div>
+                                <div class="col-md-3 inputBox1">
+                                    <input type="reset" value="Clear" class="btn btn-dark" style="margin-left: 20px">
+                                </div>
+                            </div>
+                            <p>Status: <span id="status">Ready !</span></p>
+                            <p>Already Registered? <a href="create_chit.html" class="ahover" style="text-decoration: underline">Create</a>/<a href="join_chit.html" class="ahover" style="text-decoration: underline">Join Fund.</a></p>
+                        </form>
+                </div>
+
             </div>
         </div>
-    </div>
+    </section>
     <!--  -->
 
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
