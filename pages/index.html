@@ -28,9 +28,9 @@
     <video id="background-video" autoplay loop muted poster="assets/bg1.mp4">
         <source src="assets/bg1.mp4" type="video/mp4">
     </video>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://192.168.56.1:8080/index.html"><img class="logo" src="assets/logo2.png" alt="logo"></a>
+            <a class="navbar-brand" href="http://127.0.0.1:8080/index.html"><img class="logo" src="assets/logo.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,13 +38,16 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link button-33" href="http://192.168.56.1:8080/index.html"><i class="fa-solid fa-house"></i>Home</a>
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/index.html"><i class="fa-solid fa-house"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button-33" href="http://127.0.0.1:5200/"><i class="fa-solid fa-right-to-bracket"></i>Sign Up</a>
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/register.html"><i class="fa-solid fa-right-to-bracket"></i> Register<span class="tooltiptext">Register to our Chit Fund portal</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link button-33" href="http://192.168.56.1:8080/join_chit.html"><i class="fa-solid fa-user-plus"></i>Join</a>
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/create_chit.html"><i class="fa-solid fa-right-to-bracket"></i> Create<span class="tooltiptext">Create a Chit Fund</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/join_chit.html"><i class="fa-solid fa-user-plus"></i> Join<span class="tooltiptext">Join a Chit Fund group</span></a>
                     </li>
                 </ul>
             </div>
@@ -55,15 +58,14 @@
     <!-- Slideshow -->
     <section class="slideshow-container">
         <div class="image">
-            <img src="assets/img1.png" alt="Image 1">
+            <img src="assets/img1.png" alt="Image 1" height="400px" width="400px">
         </div>
         <div class="image">
-            <img src="assets/img2.png" alt="Image 2">
+            <img src="assets/img2.png" alt="Image 2" height="400px" width="400px">
         </div>
         <div class="image">
-            <img src="assets/img3.png" alt="Image 3">
+            <img src="assets/img3.png" alt="Image 3" height="400px" width="400px">
         </div>
-    
     
         <div class="dots-container">
             <span class="dot" onclick="currentSlide(1)"></span>
@@ -75,63 +77,16 @@
 
     <!-- Actions -->
     <div class="container1">
-        <a class="button-57 " href="http://127.0.0.1:5200/"><span class="text-57">Register</span><span>Register</span></a>
         <div class="circle-container">
-            <button id="center-btns" class="btns button-1">Other activities</button>
-            <a id="btns1" class="link btns hide" href="bid.html">Bid</a><br />
-            <a id="btns2" class="link btns hide" href="create_chit.html">Create Chit</a><br />
-            <a id="btns3" class="link btns hide" href="join_chit.html">Join ChitFund group</a><br />
+            <button id="center-btns" class="btns button-1">Activities</button>
             <a id="btns4" class="link btns hide" href="installments.html">Installment Payment</a><br />
-            <a id="btns5" class="link btns hide" href="release_fund.html">Distribute Fund</a>
-    
+            <a id="btns1" class="link btns hide" href="bid.html">Bid</a><br />
+            <a id="btns5" class="link btns hide" href="release_fund.html">Distribute Fund</a><br/>
+            <a id="btns2" class="link btns hide" href="create_chit.html">Create Chit</a><br />
+            <a id="btns3" class="link btns hide" href="join_chit.html">Join Chit</a>
         </div>
     </div>
     <!-- Actions Ends -->
-
-    <!-- Card  -->
-    <!-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="card text-center" style="padding: 0; width: 70%;">
-                <h2 class="card-header" style="color: black;">
-                    ChitFund Panel
-                </h2>
-                <div class="card-body">
-                    <a href="create_chit.html" class="btn btn-dark">Create ChitFund</a><br /><br />
-                    <a href="join_chit.html" class="btn btn-dark">Join ChitFund</a><br /><br />
-                    <a href="bid.html" class="btn btn-dark">Click to Participate in Bid</a><br /><br />
-                    <a href="release_fund.html" class="btn btn-dark">Click to Distribute Fund</a><br />
-                </div>
-                <div class="card-footer justify-content-center">
-                    <a href="installments.html" class="btn btn-dark">Click here to Pay Installments</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--  -->
-
-    <!-- Footer starts -->
-    <!-- <div class="footer">
-        <button class="button-33">About us</button>
-        <div class="overlay">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="assets/" alt="">
-                    <h6 class="text-footer">Chifund Company</h6>
-                    <p>This is protype of chitfund website.It's speciality is that it b</p>
-    
-                </div>
-                <div class="col-md-4">
-                    <h6>About us </h6>
-                </div>
-                <div class="col-md-4">
-                    <h6>Contact information</h6>
-                </div>
-            </div>
-    
-        </div>
-    </div> -->
-    <!-- Footer Ends -->
-
     <!-- circle buttons js starts-->
     <script>
         let isSpread = false;
@@ -148,7 +103,7 @@
                         btn.classList.add('hide');
                     }
                 });
-                centerBtn.innerText = 'Other Activities';
+                centerBtn.innerText = 'Activities';
                 isSpread = false;
             }
             else {
