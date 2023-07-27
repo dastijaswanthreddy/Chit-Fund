@@ -16,14 +16,13 @@ contract ChitFundCompany
 {
     mapping(address => Subscriber) public subscribers;
     mapping(string => address) public chitfunds;
-    // mapping(address => uint256) public creditScore;
-    // function setCreditScore(uint256 output) public{
-    //     require(creditScore[msg.sender] == 0,"Already calculated!");
-    //     if(output == 0)creditScore[msg.sender] = 2;
-    //     else creditScore[msg.sender] = 1;
-    // }
+    mapping(address => uint256) public creditScore;
+    function setCreditScore(uint256 output) public{
+        require(creditScore[msg.sender] == 0,"Already calculated!");
+        if(output == 0)creditScore[msg.sender] = 2;
+        else creditScore[msg.sender] = 1;
+    }
     function register(string memory _name, string memory _email, address _account_id, string memory _password, uint256 _phone, string memory _dob, string memory _address) public {
-        // require(creditScore[_account_id] == 1,"You are not eligible to register due to lack in credit score");
         require(subscribers[_account_id].account_id != _account_id, "Already Registered");
         subscribers[_account_id] = Subscriber(_name, _email, _account_id, _password, _phone, _dob, _address);  
     }
@@ -140,7 +139,7 @@ contract chitFund
         maxBidAmount = (installmentAmount * noOfParticipants) - (installmentAmount * noOfParticipants) / 20;
         chitFundBalance = 0;
         currentNumberOfContributors = 0;
-        winner=0x0000000000000000000000000000000000000000;
+        winner = 0x0000000000000000000000000000000000000000;
         currentInstallment++;
         if(currentInstallment > noOfInstallments)status = false;
     }
