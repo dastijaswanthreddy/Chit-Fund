@@ -1,0 +1,335 @@
+body {
+        background-color: #010f1a;
+}
+
+#background-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+}
+
+nav {
+        width: 100%;
+        height: 10%;
+        background: transparent;
+}
+
+/* to keep navbar fixed at the top, use the navbar class below and change the margin of the row div according to the page  */
+.navbar {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        /* border-bottom: 3px solid #adadad; */
+        position: absolute;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        /* border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid Orgba(255,255,255,0.2); */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-nav {
+        /* background-color: #234e70; */
+        position: absolute;
+        right: 0.005rem;
+        padding-right: 2em;
+        z-index: 100;
+}
+
+.nav-link {
+        margin-left: 1.875rem;
+        font-size: 1.15rem;
+        color: #dd0aaf;
+}
+
+.navbar-toggler {
+        background-color: white;
+}
+.nav-link .tooltiptext {
+        visibility: hidden;
+        width: 150px;
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 50%;
+        margin-left: -100px;
+        margin-top: 10px;
+        font-size: 0.8rem;
+      }
+      
+.nav-link:hover .tooltiptext {
+        visibility: visible;
+      }
+/* btns     */
+.container1 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+}
+
+a {
+        text-decoration: underline;
+        color: black;
+        padding: 10px;
+}
+
+/* Card-Styles */
+.box {
+        position: relative;
+}
+
+.box .square {
+        position: absolute;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid Orgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+}
+
+.container {
+        margin-top: 8rem;
+        margin-bottom: 10px;
+        position: relative;
+        width: 45%;
+        min-height: 400px;
+        min-width: 300px;
+        background: rgba(17, 17, 17, 0.411);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+}
+
+.form h2 {
+        position: relative;
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        Letter-spacing: 1px;
+        margin-bottom: 40px;
+}
+
+.form h2::before {
+        content: '';
+        top: 35px;
+        position: absolute;
+        Left: 0;
+        bottom: 10px;
+        width: 80px;
+        height: 4px;
+        background: white;
+}
+
+.form .inputBox {
+        width: 100%;
+        margin-top: 20px;
+}
+
+.form .inputBox1 {
+        width: 20%;
+        margin-top: 20px;
+}
+
+.form .inputBox input,
+.form .inputBox1 input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 35px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 16px;
+        Letter-spacing: 1px;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form .inputBox input::placeholder,
+.form .inputBox1 input::placeholder {
+        color: white;
+}
+label {
+        color: white;
+        font-size: 18px;
+}
+
+select {
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 10px;
+        width: 250px;
+        color: white;
+        font-size: 16px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        outline: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+}
+      
+select option {
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 10px;
+  color: black;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+select option:checked {
+        font-size: 18px;
+        border: 2px solid blue;
+        background-color: lightgrey;
+}
+      
+.row1 {
+        display: inline-flex;
+        margin-right: 20px;
+}
+
+.form .inputBox1 input[type="button"],
+.form .inputBox1 input[type="reset"],
+.form .inputBox1 input[type="submit"] {
+        background: black;
+        color: white;
+        min-width: 130px;
+        right: 20px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+        margin-right: 145px;
+}
+
+.form p {
+        color: white;
+}
+
+.form p span {
+        color: yellow;
+}
+
+.form p a {
+        color: rgb(200, 255, 0);
+}
+
+/* Logo */
+.image-container {
+        margin-top: 5%;
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+}
+
+.logo {
+        transition: transform 0.5s ease;
+        width: 150px;
+        height: 150px;
+}
+
+.logo:hover {
+        transform: scale(1.2);
+}
+
+/* Form  */
+form {
+        margin-bottom: 0;
+}
+
+p {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-left: 20px
+}
+
+/* footer stylings starts */
+
+.footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0%;
+        height: max-content;
+}
+
+.overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(105, 100, 100);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+}
+
+.footer:hover .overlay {
+        height: 100%;
+}
+
+.text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+}
+
+.button-33 {
+        background-color: #c2fbd7;
+        border-radius: 100px;
+        box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+        color: green;
+        cursor: pointer;
+        display: inline-block;
+        font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 250ms;
+        border: 0;
+        font-size: 16px;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+}
+
+.button-33:hover {
+        box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+        transform: scale(1.05) rotate(-1deg);
+}
