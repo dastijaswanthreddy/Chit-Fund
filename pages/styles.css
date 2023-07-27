@@ -1,3 +1,7 @@
+body {
+        background-color: #010f1a;
+}
+
 #background-video {
         width: 100vw;
         height: 100vh;
@@ -8,17 +12,6 @@
         top: 0;
         bottom: 0;
         z-index: -1;
-}
-
-
-.logo {
-        width: 150px;
-        height: 150px;
-}
-
-.logo:hover {
-        width: 150px;
-        height: 150px;
 }
 
 nav {
@@ -33,6 +26,13 @@ nav {
         top: 0;
         z-index: 1;
         /* border-bottom: 3px solid #adadad; */
+        position: absolute;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        /* border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid Orgba(255,255,255,0.2); */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 
@@ -49,13 +49,31 @@ nav {
         font-size: 1.15rem;
         color: #dd0aaf;
 }
+.nav-link .tooltiptext {
+        visibility: hidden;
+        width: 150px;
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 50%;
+        margin-left: -100px;
+        margin-top: 10px;
+        font-size: 0.8rem;
+      }
+      
+.nav-link:hover .tooltiptext {
+        visibility: visible;
+      }
 
 .navbar-toggler {
         background-color: white;
-}
-
-i{
-        margin-right: 5px;
 }
 
 /* Slideshow container */
@@ -64,6 +82,7 @@ i{
         margin: auto;
         position: relative;
         overflow: hidden;
+
 }
 
 /* Slides */
@@ -153,19 +172,153 @@ i{
 }
 
 a {
-        text-decoration: none;
+        text-decoration: underline;
         color: black;
         padding: 10px;
 }
 
-
-
 /* Card-Styles */
+.box {
+        position: relative;
+}
+
+.box .square {
+        position: absolute;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid Orgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+}
+
 .container {
         margin-top: 8rem;
         margin-bottom: 10px;
+        position: relative;
+        width: 45%;
+        min-height: 400px;
+        min-width: 300px;
+        background: rgba(17, 17, 17, 0.411);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.form {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+}
+
+.form h2 {
+        position: relative;
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        Letter-spacing: 1px;
+        margin-bottom: 40px;
+}
+
+.form h2::before {
+        content: '';
+        top: 35px;
+        position: absolute;
+        Left: 0;
+        bottom: 10px;
+        width: 80px;
+        height: 4px;
+        background: white;
+}
+
+.form .inputBox {
+        width: 100%;
+        margin-top: 20px;
+}
+
+.form .inputBox1 {
+        width: 20%;
+        margin-top: 20px;
+}
+
+.form .inputBox input,
+.form .inputBox1 input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 35px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 16px;
+        Letter-spacing: 1px;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form .inputBox input::placeholder,
+.form .inputBox1 input::placeholder {
+        color: white;
+}
+
+.row1 {
+        display: inline-flex;
+        margin-right: 20px;
+}
+
+.form .inputBox1 input[type="button"],
+.form .inputBox1 input[type="reset"],
+.form .inputBox1 input[type="submit"] {
+        background: black;
+        color: white;
+        min-width: 130px;
+        right: 20px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+        margin-right: 145px;
+}
+
+.form p {
+        color: white;
+}
+
+.form p span {
+        color: yellow;
+}
+
+.form p a {
+        color: rgb(200, 255, 0);
+}
+
+/* Logo */
+.image-container {
+        margin-top: 5%;
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+}
+
+.logo {
+        transition: transform 0.5s ease;
+        width: 150px;
+        height: 150px;
+}
+
+.logo:hover {
+        transform: scale(1.2);
+}
 .card {
         box-shadow: #adadad;
         --bs-card-border-width: none;
@@ -262,12 +415,6 @@ p {
         min-width: 150px;
 }
 
-/*-----------dropdown other activities end----*/
-.ahover:hover {
-        font-size: 23px;
-}
-
-
 /* footer stylings starts */
 .footer {
         position: fixed;
@@ -275,8 +422,6 @@ p {
         bottom: 0%;
         height: max-content;
 }
-
-
 
 .overlay {
         position: absolute;
@@ -334,76 +479,6 @@ p {
         transform: scale(1.05) rotate(-1deg);
 }
 
-
-
-/* CSS */
-.button-57 {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid #18181a;
-        background-color: #c2fbd7;
-        border-radius: 100px;
-        box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
-        color: green;
-        display: inline-block;
-        font-size: 15px;
-        line-height: 15px;
-        padding: 18px 18px 17px;
-        text-decoration: none;
-        cursor: pointer;
-        /* background: #fff; */
-        -webkit-user-select: none;
-        user-select: none;
-        touch-action: manipulation;
-}
-
-.button-57 span:first-child {
-        position: relative;
-        transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-        z-index: 10;
-}
-
-.button-57 span:last-child {
-        color: white;
-        display: block;
-        position: absolute;
-        bottom: 0;
-        transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-        z-index: 100;
-        opacity: 0;
-        top: 50%;
-        left: 50%;
-        transform: translateY(225%) translateX(-50%);
-        height: 14px;
-        line-height: 13px;
-}
-
-.button-57:after {
-        content: "";
-        position: absolute;
-        bottom: -50%;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(233, 63, 12);
-        transform-origin: bottom center;
-        transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
-        transform: skewY(9.3deg) scaleY(0);
-        z-index: 50;
-}
-
-.button-57:hover:after {
-        transform-origin: bottom center;
-        transform: skewY(9.3deg) scaleY(2);
-}
-
-.button-57:hover span:last-child {
-        transform: translateX(-50%) translateY(-100%);
-        opacity: 1;
-        transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
-}
-
-
 /*  circle buttons */
 .circle-container {
         position: relative;
@@ -422,63 +497,49 @@ p {
         border-radius: 50%;
         width: 90px;
         height: 90px;
+        color: rgb(255, 205, 174);
+        border: 3px solid rgb(255, 199, 153);
 }
 
 #center-btns {
-
         color: black;
 }
 
-#btns1 {
-        background-color: rgb(233, 63, 12);
-        box-shadow: rgba(220, 156, 99, 0.2) 0 -25px 18px -14px inset, rgba(196, 149, 107, 0.15) 0 1px 2px, rgba(235, 167, 108, 0.15) 0 2px 4px, rgba(151, 104, 64, 0.15) 0 4px 8px, rgba(151, 104, 64, 0.15) 0 8px 16px, rgba(151, 104, 64, 0.15) 0 16px 32px;
+#btns3,
+#btns4,
+#btns5,
+#btns1,
+#btns2,
+#btns6 {
+        background-color: rgb(255, 128, 44);
         text-align: center;
-        padding: 30px 0 0 0;
-        /* box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px; */
-} 
-
-
-#btns2 {
-        background-color: rgb(233, 63, 12);
-        box-shadow: rgba(220, 156, 99, 0.2) 0 -25px 18px -14px inset, rgba(196, 149, 107, 0.15) 0 1px 2px, rgba(235, 167, 108, 0.15) 0 2px 4px, rgba(151, 104, 64, 0.15) 0 4px 8px, rgba(151, 104, 64, 0.15) 0 8px 16px, rgba(151, 104, 64, 0.15) 0 16px 32px;
-        text-align: center;
-        padding: 35px 0 0 0;
+        text-decoration: none;
+        padding: 20px 0 0 0;
+        cursor: pointer;
 }
-
 
 #btns3 {
+        background-color: rgb(255, 128, 44);
         text-align: center;
-        background-color: rgb(233, 63, 12);
-        box-shadow: rgba(220, 156, 99, 0.2) 0 -25px 18px -14px inset, rgba(196, 149, 107, 0.15) 0 1px 2px, rgba(235, 167, 108, 0.15) 0 2px 4px, rgba(151, 104, 64, 0.15) 0 4px 8px, rgba(151, 104, 64, 0.15) 0 8px 16px, rgba(151, 104, 64, 0.15) 0 16px 32px;
+        padding: 30px 0 0 0;
 }
 
-#btns4 {
-        background-color: rgb(233, 63, 12);
-        text-align: center;
-        padding: 20px 0 0 0;
-        box-shadow: rgba(220, 156, 99, 0.2) 0 -25px 18px -14px inset, rgba(196, 149, 107, 0.15) 0 1px 2px, rgba(235, 167, 108, 0.15) 0 2px 4px, rgba(151, 104, 64, 0.15) 0 4px 8px, rgba(151, 104, 64, 0.15) 0 8px 16px, rgba(151, 104, 64, 0.15) 0 16px 32px;
-
-}
-
-#btns5 {
-        background-color: rgb(233, 63, 12);
-        text-align: center;
-        padding: 25px 0 0 0;
-        box-shadow: rgba(220, 111, 99, 0.2) 0 -25px 18px -14px inset, rgba(196, 125, 107, 0.15) 0 1px 2px, rgba(235, 167, 108, 0.15) 0 2px 4px, rgba(151, 104, 64, 0.15) 0 4px 8px, rgba(151, 104, 64, 0.15) 0 8px 16px, rgba(151, 104, 64, 0.15) 0 16px 32px;
-}
-/* 
+#btns1,
+#btns2,
 #btns6 {
-        background-color: rgb(233, 63, 12);
+        background-color: rgb(255, 128, 44);
         text-align: center;
-        padding: 35px 0 0 0;
-} */
+        padding: 30px 0 0 0;
+}
+
+#btns1 :hover {
+        box-shadow: #18181a;
+        background-color: rgb(233, 63, 12);
+}
 
 .hide {
         display: none;
 }
-
-
-
 
 .button-1 {
 
