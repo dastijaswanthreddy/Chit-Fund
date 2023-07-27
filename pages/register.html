@@ -1,0 +1,338 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+    <!-- BootStrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- -->
+    <!-- External stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- -->
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  -->
+    <title>Register</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+
+	<video id="background-video" autoplay loop muted poster="assets/bg1.mp4">
+        <source src="assets/bg1.mp4" type="video/mp4">
+    </video>
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://127.0.0.1:8080/index.html"><img class="logo" src="assets/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/index.html"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/register.html"><i class="fa-solid fa-right-to-bracket"></i> Register<span class="tooltiptext">Register to our Chit Fund portal</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/create_chit.html"><i class="fa-solid fa-right-to-bracket"></i> Create<span class="tooltiptext">Create a Chit Fund</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link button-33" href="http://127.0.0.1:8080/join_chit.html"><i class="fa-solid fa-user-plus"></i> Join<span class="tooltiptext">Join a Chit Fund group</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <!-- Card  -->
+    <section>
+        <div class="box">
+            <div class="container">
+                <div class="form">
+                        <h2>Register</h2>
+                        <p class="text-warning">Pass the<a href="http://127.0.0.1:5200/">Credit Approval Test</a>inorder to register</p>
+                        <form>
+                            <div class="inputBox">
+                                <input type="text" id="Name" placeholder="Name" class="form-control" required>
+                            </div>
+                            <div class="inputbox">
+                                <input type="email" id="Email" placeholder="Email" class="form-control" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" id="Account ID" placeholder="Account ID" class="form-control" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="password" id="Password" placeholder="Password" class="form-control" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="tel" id="Mobile Number" placeholder="Mobile Number" size="10" class="form-control" required>
+                            </div>
+                            <div class="inputBox">
+                                <input type="date" id="DOB" placeholder="DOB" class="form-control" required>
+                            </div>
+                            <div class="inputBox">
+                               <input type="text" id="Address" placeholder="Address" class="form-control" required>
+                            </div>
+                            <div class="row1">
+                                <div class="col-md-3 inputBox1">
+                                    <input type="button" value="Register" onclick="Register()" class="btn bg-dark">
+                                </div>
+                                <div class="col-md-3 inputBox1">
+                                    <input type="reset" value="Clear" class="btn bg-dark" style="margin-left: 20px">
+                                </div>
+                            </div>
+                            <p>Status: <span id="status">Ready !</span></p>
+                            <!-- <p>Want to register? First, pass the<a href="http://127.0.0.1:5200/">Credit Approval test</a>.</p> -->
+                            <p>Already Registered? <a href="http://127.0.0.1:8080/create_chit.html" >Create</a> / <a href="http://127.0.0.1:8080/join_chit.html">Join</a> Fund.</p>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <script type="text/javascript">
+        function updateStatus(status) {
+            document.getElementById('status').innerHTML = status;
+        }
+        async function loadWeb3() {
+            //loading our network and gives us access to it
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.request({ method: 'eth_requestAccounts' });
+            }
+        }
+        async function load() {
+            await loadWeb3();
+        }
+        load();
+        async function loadContract() {
+            const chitFundCompanyABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "foremanId",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "installments",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "participants",
+				"type": "uint256"
+			}
+		],
+		"name": "createChitFund",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_email",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_account_id",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_phone",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_address",
+				"type": "string"
+			}
+		],
+		"name": "register",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "output",
+				"type": "uint256"
+			}
+		],
+		"name": "setCreditScore",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "chitfunds",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "creditScore",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "subscribers",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "account_id",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone_number",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "dob",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "Address",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];const chitFundCompanyAddress = "0xfA4537D388131D9f5421813C3D78F5193Ce51E73";
+            return await new window.web3.eth.Contract(chitFundCompanyABI, chitFundCompanyAddress);
+        }
+        async function Register(){
+            updateStatus("Processing...");
+            const contract = await loadContract();
+            const name = document.getElementById("Name").value;
+            const email = document.getElementById("Email").value;
+            const account_id = document.getElementById("Account ID").value;
+            const password = document.getElementById("Password").value;
+            const mobile_number = document.getElementById("Mobile Number").value;
+            const dob = document.getElementById("DOB").value;
+            const address = document.getElementById("Address").value;
+            const hash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+            const val = await contract.methods.creditScore(account_id).call();
+            if(val != 1)
+            {
+                updateStatus("You are not eligible to register due to lack in credit score ☹");
+                return 0;
+            }
+
+            await contract.methods.register(name, email, account_id, hash, mobile_number, dob, address).send({ from: account_id });
+            
+            updateStatus("Registered Successfully");
+        }
+    </script>
+</body>
+
+</html>
