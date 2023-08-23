@@ -1,4 +1,4 @@
-# Security Enhacement in Chit fund using Blockchain and Machine Learning Technologies
+# Security Enhancement in Chit fund using Blockchain and Machine Learning Technologies
 
 ## Introduction
 
