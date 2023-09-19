@@ -125,7 +125,6 @@ contract chitFund
         winnersList[winner] = true;
         foremanCommision = chitFundBalance / 20;  //usually foreman will take 5% of remaining balance so 5/100 => 1/20
         chitFundBalance -= maxBidAmount;
-        chitFundBalance -= foremanCommision;
         payable(foremanId).transfer(foremanCommision);
         chitFundBalance -= foremanCommision;
         equalShare = chitFundBalance / noOfParticipants;
